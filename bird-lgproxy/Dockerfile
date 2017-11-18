@@ -26,4 +26,4 @@ COPY --from=git /bird-lg /bird-lg
 ADD entrypoint.sh /
 
 ENTRYPOINT ["/entrypoint.sh"]
-CMD ["lgproxy"]
+CMD ["lgproxy:app"]

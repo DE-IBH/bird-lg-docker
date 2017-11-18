@@ -12,4 +12,4 @@ RUN apt-get update && \
 
 WORKDIR /bird-lg
 
-CMD ["lg"]
+CMD ["lg:app"]
