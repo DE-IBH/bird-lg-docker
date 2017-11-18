@@ -21,12 +21,6 @@ RUN apt-get update && \
     traceroute \
     gunicorn
 
-#    python-dnspython \
-#    graphviz \
-#    python-pydot \
-#    python-memcache \
-#    whois \
-
 WORKDIR /bird-lg
 COPY --from=git /bird-lg /bird-lg
 ADD entrypoint.sh /
