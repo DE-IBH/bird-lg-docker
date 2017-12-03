@@ -1,4 +1,4 @@
-FROM liske/bird-lgproxy
+FROM ibhde/bird-lgproxy
 
 EXPOSE 8000
 
