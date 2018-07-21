@@ -26,10 +26,42 @@ The images are based on Debain GNU/Linux and install **bird-lg** from the github
 
 The container will run with user nobody:nogroup (65534:65534) by default. You need to ensure that *bird-lgproxy* is allowed to query *bird* by passing the approperiate uid/gid via the LGGID or LGUID environemnt variables!
 
+### docker run
+
 ```
 $ docker run --rm --net=host -e LGGID:101 -v /path/to/bird/sockets:/var/run/bird ibhde/bird-lgproxy
 ```
 
 ```
 $ docker run --rm ibhde/bird-lg
+```
+
+### docker-compose
+
+```
+# docker-compose.yml example for lg
+version: '3'
+services:
+  lg:
+    image: ibhde/bird-lg
+    volumes:
+      - ./conf/lg/lg.cfg:/bird-lg/lg.cfg:ro
+    restart: always
+```
+
+```
+# docker-compose.yml example for lgproxy
+version: '3'
+services:
+  lgproxy:
+    image: ibhde/bird-lgproxy
+    network_mode: host
+    environment:
+      - LGGID=0
+    volumes:
+      - ./conf.d/lgproxy.cfg:/bird-lg/lgproxy.cfg:ro
+      - /var/run/bird:/var/run/bird
+      - /var/run/bird6:/var/run/bird6
+    restart: always
+
 ```
