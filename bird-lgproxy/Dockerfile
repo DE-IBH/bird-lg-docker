@@ -4,7 +4,7 @@ FROM alpine AS git
 WORKDIR /
 
 RUN apk add --update git && \
-    git clone https://github.com/sileht/bird-lg.git
+    git clone --depth=1 https://github.com/sileht/bird-lg.git
 
 
 # final image
