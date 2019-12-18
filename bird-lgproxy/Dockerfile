@@ -8,7 +8,7 @@ RUN apk add --update git && \
 
 
 # final image
-FROM debian:stretch-slim
+FROM debian:buster-slim
 
 ENV LGUID 65534
 ENV LGGID 65534
